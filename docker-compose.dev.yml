@@ -1,0 +1,20 @@
+services:
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/rails
+    depends_on:
+      - db
+      - redis
+  db:
+    ports:
+      # Maps port 5433 on the left (local machine) to port 5432 on the right (Docker container)
+      - "5433:5432" # Avoid conflict with local PostgreSQL
+  redis:
+    ports:
+      - "6379:6379"
