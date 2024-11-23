@@ -36,3 +36,4 @@
 
 # Ignore credential files
 /config/credentials.yml.enc
+/config/credentials/uat.key
