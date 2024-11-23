@@ -184,7 +184,7 @@ view the performance dashboard at
 
 If you like this project, please consider giving it a star on GitHub and buying me a coffee to support its development: 🌟
 
-[![GitHub Stars](https://img.shields.io/github/stars/rex-9/meritbox-api.svg?style=social&label=Star)](https://github.com/rex-9/meritbox-api)
+[![GitHub Stars](https://img.shields.io/github/stars/meritbox-me/meritbox-api.svg?style=social&label=Star)](https://github.com/rex-9/meritbox-api)
 
 <div align="center">
   <a href="https://buymeacoffee.com/rex9" target="_blank">
