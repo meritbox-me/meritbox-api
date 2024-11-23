@@ -3,20 +3,35 @@ services:
     build:
       context: .
       dockerfile: ${RAILS_APP_DOCKERFILE}
-    volumes:
-      - .:/rails
-    ports:
-      - ${RAILS_APP_PORT_MAP}
+    environment:
+      RAILS_ENV: ${RAILS_ENV}
+      RAILS_APP_DATABASE_URL: ${RAILS_APP_DATABASE_URL}
+      RAILS_APP_CLIENT_BASE_URL: ${RAILS_APP_CLIENT_BASE_URL}
+      RAILS_APP_SERVER_BASE_URL: ${RAILS_APP_SERVER_BASE_URL}
     depends_on:
       - db
       - redis
+
   db:
-    image: postgres
+    image: postgres/postgres:17-alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: ${RAILS_APP_DB_PASSWORD}
-    ports:
-      - ${RAILS_APP_DB_PORT_MAP}
+      POSTGRES_PASSWORD: ${RAILS_APP_POSTGRES_PASSWORD}
+      POSTGRES_DATABASE: ${RAILS_APP_POSTGRES_DATABASE}
+      # - 'PGDATABASE=${POSTGRES_DB:-meritbox_api_production}'
+    healthcheck:
+      test: "pg_isready -U postgres -h 127.0.0.1"
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
   redis:
     image: redis:latest
-    ports:
-      - ${RAILS_APP_REDIS_PORT_MAP}
+    volumes:
+      - redis:/data
+    healthcheck:
+      test: redis-cli ping
+      interval: 5s
+      retries: 10
+      timeout: 2s

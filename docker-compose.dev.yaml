@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ${RAILS_APP_DOCKERFILE}
+    volumes:
+      - .:/rails
+    ports:
+      - ${RAILS_APP_PORT_MAP}
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: ${RAILS_APP_DB_PASSWORD}
+    ports:
+      - ${RAILS_APP_DB_PORT_MAP}
+
+  redis:
+    image: redis:latest
+    ports:
+      - ${RAILS_APP_REDIS_PORT_MAP}
