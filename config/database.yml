@@ -83,10 +83,6 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 
-uat:
-  <<: *default
-  database: meritbox_api_uat
-
 # TODO: update prod credentials
 production:
   <<: *default
