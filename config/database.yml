@@ -83,9 +83,6 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 
-# TODO: update prod credentials
 production:
   <<: *default
-  database: meritbox_api_production
-  username: rex
-  password: <%= ENV["meritbox_api_DATABASE_PASSWORD"] %>
+  url: <%= ENV["RAILS_APP_DATABASE_URL"] %>
