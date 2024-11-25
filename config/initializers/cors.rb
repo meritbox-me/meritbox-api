@@ -7,20 +7,22 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "http://localhost:5173",
-            "https://uat.meritbox.me",
-            "http://uat.meritbox.me",
-            "https://www.uat.meritbox.me",
-            "http://www.uat.meritbox.me",
-            "https://meritbox.me",
-            "http://meritbox.me",
-            "https://www.meritbox.me",
-            "http://www.meritbox.me"
+    # origins "http://localhost:5173",
+    #         "https://uat.meritbox.me",
+    #         "http://uat.meritbox.me",
+    #         "https://www.uat.meritbox.me",
+    #         "http://www.uat.meritbox.me",
+    #         "https://meritbox.me",
+    #         "http://meritbox.me",
+    #         "https://www.meritbox.me",
+    #         "http://www.meritbox.me"
+
+    origins "*"
 
     resource "*",
       headers: :any,
       expose: [ "access-token", "expiry", "token-type", "Authorization" ],
-      methods: [ :get, :post, :put, :patch, :delete, :options, :head ],
-      credentials: true
+      methods: [ :get, :post, :put, :patch, :delete, :options, :head ]
+    # credentials: true
   end
 end
