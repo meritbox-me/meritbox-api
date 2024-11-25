@@ -16,7 +16,7 @@ services:
     environment:
       POSTGRES_PASSWORD: ${RAILS_APP_DB_PASSWORD}
     ports:
-      - ${RAILS_APP_DB_PORT_MAP}
+      - ${RAILS_APP_POSTGRES_PORT_MAP}
 
   redis:
     image: redis:latest

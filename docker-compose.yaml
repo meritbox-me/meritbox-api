@@ -8,6 +8,8 @@ services:
       RAILS_APP_DATABASE_URL: ${RAILS_APP_DATABASE_URL}
       RAILS_APP_CLIENT_BASE_URL: ${RAILS_APP_CLIENT_BASE_URL}
       RAILS_APP_SERVER_BASE_URL: ${RAILS_APP_SERVER_BASE_URL}
+    ports:
+      - ${RAILS_APP_PORT_MAP}
     depends_on:
       - db
       - redis
@@ -22,6 +24,8 @@ services:
       POSTGRES_PASSWORD: ${RAILS_APP_POSTGRES_PASSWORD}
       POSTGRES_HOST: ${RAILS_APP_POSTGRES_HOST}
       POSTGRES_PORT: ${RAILS_APP_POSTGRES_PORT}
+    ports:
+      - ${RAILS_APP_POSTGRES_PORT_MAP}
     healthcheck:
       test: "pg_isready -U postgres -h 127.0.0.1"
       interval: 5s
@@ -32,6 +36,8 @@ services:
     image: redis:latest
     volumes:
       - redis:/data
+    ports:
+      - ${RAILS_APP_REDIS_PORT_MAP}
     healthcheck:
       test: redis-cli ping
       interval: 5s
