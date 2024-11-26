@@ -13,6 +13,8 @@ services:
     depends_on:
       - db
       - redis
+    labels:
+      - coolify.traefik.middlewares=cors@file
 
   db:
     image: postgres:17-alpine
