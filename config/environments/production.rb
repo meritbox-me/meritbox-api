@@ -103,9 +103,9 @@ Rails.application.configure do
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   config.hosts = [
+    /localhost:\d+/,   # Allow requests from localhost with any port
     "meritbox.me",     # Allow requests from meritbox.me
-    /.*\.meritbox\.me/, # Allow requests from subdomains like `www.meritbox.me`
-    "*"
+    /.+\.meritbox\.me/ # Allow requests from subdomains like `www.meritbox.me`
   ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
