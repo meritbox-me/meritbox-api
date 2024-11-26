@@ -101,12 +101,16 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # Clear the hosts configuration to allow requests from any host
+  # Note: This is generally not recommended for production environments
+  config.hosts.clear
+
   # Enable DNS rebinding protection and other `Host` header attacks.
-  config.hosts = [
-    /localhost:\d+/,   # Allow requests from localhost with any port
-    "meritbox.me",     # Allow requests from meritbox.me
-    /.+\.meritbox\.me/ # Allow requests from subdomains like `www.meritbox.me`
-  ]
+  # config.hosts = [
+  #   /localhost:\d+/,   # Allow requests from localhost with any port
+  #   "meritbox.me",     # Allow requests from meritbox.me
+  #   /.+\.meritbox\.me/ # Allow requests from subdomains like `www.meritbox.me`
+  # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end
