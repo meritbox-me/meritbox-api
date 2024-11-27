@@ -22,7 +22,7 @@ Rails.application.configure do
   if Rails.root.join("tmp/caching-dev.txt").exist?
     # config.cache_store = :memory_store
     # Redis memory cache store
-    config.cache_store = :redis_cache_store, { url: ENV["RAILS_APP_REDIS_URL"] || "redis://redis:6379/0" }
+    config.cache_store = :redis_cache_store, { url: ENV["RAILS_REDIS_URL"] || "redis://redis:6379/0" }
     config.public_file_server.headers = { "Cache-Control" => "public, max-age=#{2.days.to_i}" }
   else
     config.action_controller.perform_caching = false

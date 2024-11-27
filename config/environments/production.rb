@@ -63,7 +63,7 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
   config.cache_store = :redis_cache_store, {
-    url: ENV["RAILS_APP_REDIS_URL"] || "redis://redis:6379/1",
+    url: ENV["RAILS_REDIS_URL"] || "redis://redis:6379/1",
     namespace: "cache"
   }
 

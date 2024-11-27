@@ -1,7 +1,7 @@
 if defined?(RailsPerformance)
   RailsPerformance.setup do |config|
     # Redis configuration
-    config.redis = Redis.new(url: ENV["RAILS_APP_REDIS_URL"].presence || "redis://redis:6379/0")
+    config.redis = Redis.new(url: ENV["RAILS_REDIS_URL"].presence || "redis://redis:6379/0")
 
     # All data we collect
     config.duration = 4.hours
