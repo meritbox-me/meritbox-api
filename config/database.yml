@@ -85,9 +85,4 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV["PG_DATABASE"] %>
-  username: <%= ENV["PG_USER"] %>
-  password: <%= ENV["PG_PASSWORD"] %>
-  host: <%= ENV["PG_HOST"] %>
-  port: <%= ENV["PG_PORT"] %>
-  # url: <%= ENV["RAILS_DATABASE_URL"] %>
+  url: <%= ENV["RAILS_DATABASE_URL"] %>
