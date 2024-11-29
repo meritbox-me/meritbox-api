@@ -186,7 +186,7 @@ view the API documentation at
 
 view the performance dashboard at
 
-`/rails/perf`
+`/performance`
 
 ### Explore More Open Source Projects
 
