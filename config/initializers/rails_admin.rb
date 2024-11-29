@@ -39,4 +39,12 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  # Authentication
+  config.authenticate_with do
+    # Replace with your authentication logic
+    authenticate_or_request_with_http_basic("Admin") do |username, password|
+      username == ENV["RAILS_ADMIN_USERNAME"] && password == ENV["RAILS_ADMIN_PASSWORD"]
+    end
+  end
 end

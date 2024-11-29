@@ -83,3 +83,5 @@ gem "redis", "~> 5.3"
 gem "rails_admin", "~> 3.2"
 
 gem "sassc-rails", "~> 2.1"
+
+gem "sprockets-rails", "~> 3.5"
