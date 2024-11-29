@@ -473,7 +473,6 @@ DEPENDENCIES
   sassc-rails (~> 2.1)
   shoulda-matchers (~> 6.4)
   solargraph (~> 0.50.0)
-  sprockets-rails (~> 3.5)
   tzinfo-data
 
 BUNDLED WITH
